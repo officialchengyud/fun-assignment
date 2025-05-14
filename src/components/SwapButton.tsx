@@ -1,8 +1,17 @@
+import { useStore } from "@/hooks/useStore";
 import { Button } from "@heroui/react";
 
 const SwapButton = () => {
+  const { swapCoins, targetCoin } = useStore();
+
   return (
-    <Button isIconOnly aria-label="Swap" variant="faded">
+    <Button
+      isIconOnly
+      aria-label="Swap"
+      variant="faded"
+      onPress={() => swapCoins()}
+      disabled={!targetCoin}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="30px"

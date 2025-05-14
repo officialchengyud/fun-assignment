@@ -8,6 +8,7 @@ interface StoreContextType {
   setTargetCoin: (coinType: CoinType) => void;
   currencyValue: number;
   setCurrencyValue: (currencyValue: number) => void;
+  swapCoins: () => void;
 }
 
 const StoreContext = createContext<StoreContextType | null>(null);
@@ -21,6 +22,13 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
   const [targetCoin, setTargetCoin] = useState<CoinType>();
   const [currencyValue, setCurrencyValue] = useState<number>(0);
 
+  function swapCoins() {
+    if (sourceCoin && targetCoin) {
+      setSourceCoin(targetCoin);
+      setTargetCoin(sourceCoin);
+    }
+  }
+
   const value: StoreContextType = {
     sourceCoin,
     setSourceCoin,
@@ -28,6 +36,7 @@ export const StoreProvider: React.FC<StoreProviderProps> = ({ children }) => {
     setTargetCoin,
     currencyValue,
     setCurrencyValue,
+    swapCoins,
   };
 
   return (

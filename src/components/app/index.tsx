@@ -1,7 +1,7 @@
 import { useStore } from "@/hooks/useStore";
 import CoinCard from "../CoinCard";
 import SwapButton from "../SwapButton";
-import TargetTokens from "./TargetTokens";
+import TargetTokens from "../TargetTokens";
 
 const App = () => {
   const { targetCoin, sourceCoin, setSourceCoin, setTargetCoin } = useStore();
