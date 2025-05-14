@@ -17,7 +17,7 @@ const CoinSelect = ({ value, onChange, filterCoin }: CoinSelectProps) => {
       }}
       disallowEmptySelection
       items={coins.filter((coin) => filterCoin !== coin.name)}
-      selectedKeys={value && [value]}
+      selectedKeys={value ? [value] : []}
       onChange={(e) => onChange(e.target.value as CoinType)}
       labelPlacement="outside"
       placeholder="Select Coin"
