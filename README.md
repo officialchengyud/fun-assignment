@@ -1,21 +1,23 @@
-# React + TypeScript + Vite
+<div align="center">
+  <h2>Fun Token Price Explorer</h2>
+    <p align="center">
+        Compare between two crypto tokens and their relative price against the USD. <a href="https://fun-assignment.vercel.app">Try it out here</a>
+    </p>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+<img src="https://github.com/user-attachments/assets/1121f018-1d5a-4a3c-b4fe-8f4f53b8dace" width="800">
+</div>
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+## Development Environment
+First create a `.env.local` file and add `VITE_FUN_API_KEY=API_KEY`
 
-## Deploy Your Own
+Then install the relevant packages
+```bash
+npm i
+```
 
-Deploy your own Vite project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/vite-react&template=vite-react)
-
-_Live Example: https://vite-react-example.vercel.app_
-
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
+Finally, start the development server
+```bash
+yarn install
 ```
