@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { HeroUIProvider } from "@heroui/react";
+import { HeroUIProvider, ToastProvider } from "@heroui/react";
 import "./index.css";
 import App from "./components/app";
 import { StoreProvider } from "./hooks/useStore";
@@ -14,6 +14,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <HeroUIProvider>
+        <ToastProvider />
         <StoreProvider>
           <App />
         </StoreProvider>

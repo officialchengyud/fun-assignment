@@ -1,3 +1,8 @@
+import USDT from "@/assets/USDT.svg";
+import USDC from "@/assets/USDC.svg";
+import ETH from "@/assets/ETH.svg";
+import WBTC from "@/assets/WBTC.svg";
+
 export enum CoinType {
   USDC = "USDC",
   USDT = "USDT",
@@ -8,15 +13,19 @@ export enum CoinType {
 export const coins = [
   {
     name: CoinType.USDC,
+    svg: USDC,
   },
   {
     name: CoinType.USDT,
+    svg: USDT,
   },
   {
     name: CoinType.ETH,
+    svg: ETH,
   },
   {
     name: CoinType.WBTC,
+    svg: WBTC,
   },
 ];
 

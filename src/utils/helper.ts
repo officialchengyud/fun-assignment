@@ -1,3 +1,4 @@
+// Used to help shorten the number when displaying so that it fits inside card
 export function roundValue(value: number) {
   const suffixes = ["", "K", "M", "B", "T"];
   let index = 0;
@@ -10,6 +11,9 @@ export function roundValue(value: number) {
   return `${rounded}${suffixes[index]}`;
 }
 
+// This is used for rounding the unit prices and purely for aesthetics when displaying
+// If the unit price is a decimal, then we retain 4 s.f
+// If the unit price is more than 1, then we retain 6 decimal places
 export function formatUnitPrice(value: number) {
   if (value === 0) return "0";
 
@@ -20,7 +24,7 @@ export function formatUnitPrice(value: number) {
     return parseFloat(rounded.toString());
   }
 
-  const rounded = (Math.round(value * 10_000) / 10_000).toFixed(6);
+  const rounded = (Math.round(value * 1_000_000) / 1_000_000).toFixed(6);
   return parseFloat(rounded);
 }
 

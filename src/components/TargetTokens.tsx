@@ -1,6 +1,7 @@
 import { coins } from "@/constants/coins";
 import { useStore } from "@/hooks/useStore";
 import { Button, Card, CardBody } from "@heroui/react";
+import CoinItem from "./CoinItem";
 
 function TargetTokens() {
   const { setTargetCoin, sourceCoin } = useStore();
@@ -15,8 +16,9 @@ function TargetTokens() {
               onPress={() => setTargetCoin(coin.name)}
               radius="full"
               isDisabled={coin.name === sourceCoin}
+              variant="light"
             >
-              {coin.name}
+              <CoinItem name={coin.name} svg={coin.svg} />
             </Button>
           );
         })}

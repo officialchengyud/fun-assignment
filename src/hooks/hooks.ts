@@ -3,14 +3,17 @@ import {
   getAssetErc20ByChainAndSymbol,
   getAssetPriceInfo,
 } from "@funkit/api-base";
+import { addToast } from "@heroui/react";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Let's automatically re-fetch the asset price info every 15s.
 const REFETCH_INTERVAL = 15000;
 
 export function useAssetPrice(coinType: CoinType | undefined) {
   const [lastFetched, setLastFetched] = useState(Date.now());
+  const [error, setError] = useState(false);
+
   const tokenInfo = useQuery({
     queryKey: ["tokenInfo", coinType],
     queryFn: ({ signal }) =>
@@ -35,9 +38,27 @@ export function useAssetPrice(coinType: CoinType | undefined) {
     refetchInterval: REFETCH_INTERVAL,
     enabled: !!tokenInfo.data,
   });
+  useEffect(() => {
+    if (tokenInfo.error || price.error) {
+      setError(true);
+      addToast({
+        title: "An error has occured",
+        description:
+          // The error could be from the price request or token info request
+          price.error?.message ??
+          tokenInfo.error?.message ??
+          "An unknown error occurred.",
+        color: "danger",
+      });
+    } else {
+      setError(false);
+    }
+  }, [tokenInfo.error, price.error]);
+
   return {
     price: price.data,
     isLoading: tokenInfo.isFetching || price.isFetching,
     lastFetched,
+    error,
   };
 }

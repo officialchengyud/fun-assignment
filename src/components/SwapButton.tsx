@@ -9,7 +9,7 @@ const SwapButton = () => {
       isIconOnly
       aria-label="Swap"
       variant="faded"
-      onPress={() => swapCoins()}
+      onPress={swapCoins}
       disabled={!targetCoin}
     >
       <svg
