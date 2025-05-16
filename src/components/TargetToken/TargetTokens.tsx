@@ -1,7 +1,7 @@
 import { coins } from "@/constants/coins";
 import { useStore } from "@/hooks/useStore";
 import { Button, Card, CardBody } from "@heroui/react";
-import CoinItem from "./CoinItem";
+import CoinItem from "../Card/CoinItem";
 
 function TargetTokens() {
   const { setTargetCoin, sourceCoin } = useStore();

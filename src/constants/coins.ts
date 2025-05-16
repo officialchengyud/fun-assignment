@@ -2,13 +2,7 @@ import USDT from "@/assets/USDT.svg";
 import USDC from "@/assets/USDC.svg";
 import ETH from "@/assets/ETH.svg";
 import WBTC from "@/assets/WBTC.svg";
-
-export enum CoinType {
-  USDC = "USDC",
-  USDT = "USDT",
-  ETH = "ETH",
-  WBTC = "WBTC",
-}
+import { CoinType } from "./types";
 
 export const coins = [
   {
@@ -29,6 +23,9 @@ export const coins = [
   },
 ];
 
+// If I were to expand on the number of coin offerings,
+// then I would either use an existing API to fetch this list
+// or expand on this coin type
 export const coinDetailMap = {
   [CoinType.USDC]: {
     chainId: "1",

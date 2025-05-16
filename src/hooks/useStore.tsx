@@ -1,4 +1,4 @@
-import { CoinType } from "@/constants/coins";
+import { CoinType } from "@/constants/types";
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface StoreContextType {

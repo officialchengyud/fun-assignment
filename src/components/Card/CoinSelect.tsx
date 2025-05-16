@@ -1,4 +1,5 @@
-import { coins, CoinType } from "@/constants/coins";
+import { coins } from "@/constants/coins";
+import { CoinType } from "@/constants/types";
 import { Select, SelectItem } from "@heroui/react";
 import CoinItem from "./CoinItem";
 
@@ -22,15 +23,15 @@ const CoinSelect = ({ value, onChange, filterCoin }: CoinSelectProps) => {
       onChange={(e) => onChange(e.target.value as CoinType)}
       labelPlacement="outside"
       placeholder="Select Coin"
-      renderValue={(coins) => {
-        return coins.map((coin) => (
+      renderValue={(coins) =>
+        coins.map((coin) => (
           <CoinItem
             key={coin.key}
             name={coin.data!.name}
             svg={coin.data!.svg}
           />
-        ));
-      }}
+        ))
+      }
     >
       {(coin) => (
         <SelectItem key={coin.name} textValue={coin.name}>
